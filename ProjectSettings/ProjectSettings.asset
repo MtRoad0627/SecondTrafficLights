@@ -657,11 +657,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 2a7f6e30-e245-421e-90fc-a4a93f87651c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: SecondTrafficLights
+  organizationId: mt_road
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
