@@ -7,7 +7,7 @@ using InGame;
 namespace Result
 {
     /// <summary>
-    /// 最終的な得点を表示
+    /// 譛邨ら噪縺ｪ蠕礼せ繧定｡ｨ遉ｺ
     /// </summary>
     public class ResultPoint : MonoBehaviour
     {
