@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using InGame.UI;
+using Unity.Netcode;
 
 namespace InGame
 {
     /// <summary>
     /// UIの統括を行う
     /// </summary>
-    public class UIManager : SingletonMonoBehaviour<UIManager>
+    public class UIManager : NetworkBehaviour
     {
         [Header("得点表示UI")]
         
@@ -87,6 +88,23 @@ namespace InGame
         private void GenerateFinishedUI()
         {
             Instantiate(finishPrefab, finishUIParent);
+        }
+
+        /// <summary>
+        ///簡易的なシングルトン
+        /// <summary>
+        private static UIManager instance;
+        public static UIManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = (UIManager)FindObjectOfType(typeof(UIManager));
+                }
+
+                return instance;
+            }
         }
     }
 }

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Netcode;
 
 namespace InGame
 {
-    public class GameManager : SingletonMonoBehaviour<GameManager>
+    public class GameManager : NetworkBehaviour
     {
         public enum Sequence
         {
@@ -253,6 +254,23 @@ namespace InGame
         public void Quit()
         {
             SceneManager.LoadScene(startSceneName);
+        }
+
+        /// <summary>
+        ///簡易的なシングルトン
+        /// <summary>
+        private static GameManager instance;
+        public static GameManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = (GameManager)FindObjectOfType(typeof(GameManager));
+                }
+
+                return instance;
+            }
         }
     }
 }

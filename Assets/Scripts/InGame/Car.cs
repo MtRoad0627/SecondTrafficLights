@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace InGame
 {
-    public class Car : MonoBehaviour
+    public class Car : NetworkBehaviour
     {
         private enum State
         {

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace InGame
 {
-    public class CarGenerator : SingletonMonoBehaviour<CarGenerator>
+    public class CarGenerator : NetworkBehaviour
     {
         [Tooltip("車のプレハブ")]
         [SerializeField] private GameObject carPrefab;
@@ -321,6 +322,23 @@ namespace InGame
             public void ResetTimer()
             {
                 timer = 0f;
+            }
+        }
+
+        /// <summary>
+        ///簡易的なシングルトン
+        /// <summary>
+        private static CarGenerator instance;
+        public static CarGenerator Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = (CarGenerator)FindObjectOfType(typeof(CarGenerator));
+                }
+
+                return instance;
             }
         }
     }
